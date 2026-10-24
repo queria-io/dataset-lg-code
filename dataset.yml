@@ -9,6 +9,7 @@ keywords:
   - マスタ
 homepage: https://github.com/queria-io/dataset-lg-code
 language: ja
+themes: [land_climate]
 
 licenses:
   - JP-GOV-STD-2.0
