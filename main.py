@@ -10,9 +10,9 @@ def main():
     if not result.success:
         raise SystemExit("dbt deps failed")
 
-    result = dbt.invoke(["run"])
+    result = dbt.invoke(["build"])
     if not result.success:
-        raise SystemExit("dbt run failed")
+        raise SystemExit("dbt build failed")
 
     result = dbt.invoke(["docs", "generate"])
     if not result.success:

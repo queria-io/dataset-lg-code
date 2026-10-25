@@ -10,6 +10,12 @@ seed-paths: ["seeds"]
 macro-paths: ["macros", "shared/macros"]
 snapshot-paths: ["snapshots"]
 
+# 総務省の一覧は基準日ごとに URL と2枚目のシート名が変わる。raw_lg_code と raw_lg_code_ward が
+# 別の基準日のファイルを読まないよう、ここで1組にして持つ
+vars:
+  lg_code_xlsx_url: "https://www.soumu.go.jp/main_content/000925835.xlsx"
+  lg_code_ward_sheet: "R6.1.1政令指定都市"
+
 clean-targets:
   - "target"
   - "dbt_packages"

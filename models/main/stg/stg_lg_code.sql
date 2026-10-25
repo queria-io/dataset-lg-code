@@ -4,9 +4,10 @@ with code as (
     select *, case when city is null then 'prefecture' else 'municipality' end as code_type
     from {{ ref('raw_lg_code') }}
     union all
-    select *, 'ward' as code_type
-    from {{ ref('raw_lg_code_ward') }}
-    where lg_code not in (select lg_code from {{ ref('raw_lg_code') }})
+    -- not in にしないのは、1枚目の lg_code に NULL が1つでもあると区の行が全部落ちるため
+    select ward.*, 'ward' as code_type
+    from {{ ref('raw_lg_code_ward') }} as ward
+    where not exists (select 1 from {{ ref('raw_lg_code') }} as listed where listed.lg_code = ward.lg_code)
 )
 
 SELECT
