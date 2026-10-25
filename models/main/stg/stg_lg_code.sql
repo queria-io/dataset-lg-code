@@ -1,5 +1,14 @@
 {{ config(materialized='view') }}
 
+with code as (
+    select *, case when city is null then 'prefecture' else 'municipality' end as code_type
+    from {{ ref('raw_lg_code') }}
+    union all
+    select *, 'ward' as code_type
+    from {{ ref('raw_lg_code_ward') }}
+    where lg_code not in (select lg_code from {{ ref('raw_lg_code') }})
+)
+
 SELECT
     lg_code,
     SUBSTR(lg_code, 1, 2) AS pref_code,
@@ -8,5 +17,5 @@ SELECT
     city,
     prefecture_kana,
     city_kana,
-    CASE WHEN city IS NULL THEN 'prefecture' ELSE 'municipality' END AS code_type
-FROM {{ ref('raw_lg_code') }}
+    code_type
+FROM code

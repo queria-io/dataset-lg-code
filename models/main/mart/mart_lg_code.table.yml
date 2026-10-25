@@ -1,7 +1,7 @@
 schema: main
 name: mart_lg_code
 title: 全国地方公共団体コード
-description: 総務省が定める全国地方公共団体コード（団体コード）のマスタ。都道府県・市区町村等の6桁コードと5桁コード、都道府県コード、名称（漢字・カナ）、団体区分を収録する。
+description: 総務省が定める全国地方公共団体コード（団体コード）のマスタ。都道府県・市区町村等の6桁コードと5桁コード、都道府県コード、名称（漢字・カナ）、団体区分を収録する。政令指定都市の区（札幌市中央区など）も code_type = ward の行として含む。
 keywords:
   - 地方公共団体コード
   - 市区町村
@@ -28,7 +28,7 @@ fields:
     description: 漢字表記
   - name: city
     title: 市区町村名
-    description: 漢字表記。都道府県レコードでは NULL
+    description: 漢字表記。都道府県レコードでは NULL。政令指定都市の区は「札幌市中央区」のように市の名前から書く
   - name: prefecture_kana
     title: 都道府県名カナ
     description: 半角カナ表記
@@ -37,4 +37,4 @@ fields:
     description: 半角カナ表記。都道府県レコードでは NULL
   - name: code_type
     title: コード種別
-    description: prefecture=都道府県、municipality=市区町村
+    description: prefecture=都道府県、municipality=市区町村（東京の特別区を含む）、ward=政令指定都市の区。市区町村だけを数えるときは municipality に絞る

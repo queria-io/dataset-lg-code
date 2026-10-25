@@ -14,3 +14,5 @@ models:
         description: 都道府県名（半角カナ）
       - name: city_kana
         description: 市区町村名（半角カナ）。都道府県レコードでは NULL
+  - name: raw_lg_code_ward
+    description: 総務省 全国地方公共団体コードのうち、政令指定都市とその区の生データ

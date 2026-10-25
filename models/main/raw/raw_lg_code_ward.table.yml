@@ -1,0 +1,15 @@
+schema: main
+name: raw_lg_code_ward
+description: 総務省 全国地方公共団体コードのうち、政令指定都市とその区の生データ
+published: false
+fields:
+  - name: lg_code
+    description: 団体コード（6桁、チェックディジット込み）
+  - name: prefecture
+    description: 都道府県名（漢字）
+  - name: city
+    description: 市区名（漢字）。区は「札幌市中央区」のように市の名前から書く
+  - name: prefecture_kana
+    description: 都道府県名（半角カナ）
+  - name: city_kana
+    description: 市区名（半角カナ）
