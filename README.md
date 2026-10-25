@@ -1,6 +1,6 @@
 ## データ出典
 
-[総務省 全国地方公共団体コード](https://www.soumu.go.jp/denshijiti/code.html)が公開している市町村別コード（現行）です。全国の都道府県・市区町村等の団体コードと団体名（漢字・カナ）を収録しています。
+[総務省 全国地方公共団体コード](https://www.soumu.go.jp/denshijiti/code.html)が公開している市町村別コード（現行）です。全国の都道府県・市区町村等の団体コードと団体名（漢字・カナ）を収録しています。政令指定都市の区のコードも、同じファイルの「政令指定都市」シートから取り込んでいます。
 
 ## テーブル: mart_lg_code
 
@@ -13,7 +13,7 @@
 - city: 市区町村名（漢字、VARCHAR）。都道府県レコードでは NULL
 - prefecture_kana: 都道府県名（半角カナ、VARCHAR）
 - city_kana: 市区町村名（半角カナ、VARCHAR）。都道府県レコードでは NULL
-- code_type: コード種別（VARCHAR、prefecture=都道府県、municipality=市区町村）
+- code_type: コード種別（VARCHAR、prefecture=都道府県、municipality=市区町村、ward=政令指定都市の区）
 
 ## ライセンス
 
