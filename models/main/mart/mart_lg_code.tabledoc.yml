@@ -1,30 +1,29 @@
-schema: main
-name: mart_lg_code
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 title: 全国地方公共団体コード
 description: |-
   都道府県・市区町村・政令指定都市の区の団体コード（6 桁・5 桁）、都道府県コード、名称（漢字・カナ）です。
 
   - 政令指定都市の区は code_type = 'ward' の行です。市区町村だけを数えるときは 'municipality' に絞ってください
-keywords:
+topics:
   - 地方公共団体コード
   - 市区町村
   - 総務省
   - マスタ
 sources:
-  - path: https://www.soumu.go.jp/denshijiti/code.html
-fields:
+  - code
+columns:
   - name: lg_code
     title: 団体コード
     description: 全国地方公共団体コード（JIS X0401, X0402 の6桁、チェックディジット付き）
-    annotations: { queria: { semantic: { role: entity, name: city } } }
+    entity: city
   - name: pref_code
     title: 都道府県コード
     description: 団体コードの先頭2桁
-    annotations: { queria: { semantic: { role: entity, name: prefecture } } }
+    entity: prefecture
   - name: lg_code_5
     title: 団体コード（5桁）
     description: 団体コードのチェックディジットを除いた先頭5桁
-    annotations: { queria: { semantic: { role: entity, name: city } } }
+    entity: city
   - name: prefecture
     title: 都道府県名
     description: 漢字表記
