@@ -1,8 +1,7 @@
-schema: main
-name: raw_lg_code_ward
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 description: 総務省 全国地方公共団体コードのうち、政令指定都市とその区の生データ
-annotations: { queria: { published: false } }
-fields:
+hidden: true
+columns:
   - name: lg_code
     description: 団体コード（6桁、チェックディジット込み）
   - name: prefecture
